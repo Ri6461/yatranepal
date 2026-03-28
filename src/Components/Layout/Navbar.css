@@ -1,0 +1,105 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Base Link Style */
+.navbar-link {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    position: relative;
+    text-decoration: none !important;
+    /* Force no default underline */
+}
+
+.navbar-link:hover {
+    color: var(--color-primary);
+    text-decoration: none !important;
+}
+
+/* Active State - Color change only, NO UNDERLINE */
+.navbar-link.active {
+    color: var(--color-primary);
+    font-weight: 800;
+    text-decoration: none !important;
+}
+
+/* Explicitly Unset any after/before elements that might create lines */
+.navbar-link::after,
+.navbar-link::before,
+.navbar-link.active::after,
+.navbar-link.active::before {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.navbar-toggle {
+    display: none;
+    background: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 4px;
+}
+
+.bar {
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--glass-bg);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--glass-border);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: -1;
+    }
+
+    .navbar-menu.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}

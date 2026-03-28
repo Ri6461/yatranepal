@@ -1,0 +1,168 @@
+/* Home Page Premium Styles */
+
+/* Fullscreen Immersive Hero Section */
+.hero-fullscreen {
+    position: relative;
+    width: 100%;
+    height: 100vh !important;
+    margin-top: -20px !important; /* Forces the background image to start behind the absolute viewport top */
+    /* padding-top: 220px !important;  */
+    background-image: url('https://picsum.photos/seed/nepalhimalaya/1920/1080');
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(13, 110, 253, 0.4) 0%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 1;
+}
+
+.hero-content-center {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.hero-title-main {
+    font-size: 4.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle-main {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    color: #e9ecef;
+}
+
+.text-highlight {
+    color: var(--color-secondary);
+}
+
+.text-highlight::after {
+    display: none; /* Removed the messy gold underline */
+}
+
+/* Glassmorphic Search Bar replacing the old text inputs */
+.hero-search-glass {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    max-width: 950px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-search-glass:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+}
+
+/* Featured Section */
+.featured-section {
+    padding: 6rem 0;
+    background-color: var(--color-bg);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary-dark);
+}
+
+/* Why Us Section */
+.why-us-section {
+    padding: 5rem 0 7rem;
+    background-color: white;
+}
+
+.why-us-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.why-card {
+    flex: 1;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.why-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 40px rgba(13, 110, 253, 0.1);
+}
+
+.why-icon i {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.why-card:hover .why-icon i {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.why-card h3 {
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+    font-size: 1.35rem;
+}
+
+/* Fluid Animations */
+@keyframes slideUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.95) translateY(20px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.animate-slide-up {
+    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards 0.3s;
+}
+
+.animate-pop-in {
+    opacity: 0;
+    animation: popIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.5s;
+}
+
+/* Responsive Overrides */
+@media (max-width: 900px) {
+    .hero-title-main { font-size: 3rem; }
+    .hero-search-glass { padding: 20px; border-radius: 20px; }
+    .hero-search-glass .border-start { border-left: none !important; margin-top: 15px; }
+    .hero-search-glass input, .hero-search-glass select { margin-bottom: 10px; }
+    .why-us-grid { flex-direction: column; }
+}

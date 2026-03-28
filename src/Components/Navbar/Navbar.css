@@ -1,0 +1,58 @@
+/* Modern Floating Glassmorphic Navbar (Scale-Up Academy Style) */
+.glass-navbar {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1300px;
+    z-index: 1030;
+    border-radius: 50px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0.5rem 1.5rem;
+}
+
+/* State 1: Completely transparent + light frost bounds for the Hero Section */
+.glass-navbar.transparent-state {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    position: fixed;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* State 2: Solid frosty glass when scrolled down or on normal pages */
+.glass-navbar.solid-state {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    top: 15px; /* Slight bump to top when scrolling down */
+}
+
+/* Mobile Responsiveness for the Glass Menu */
+@media (max-width: 991px) {
+    .glass-navbar {
+        border-radius: 20px;
+        top: 15px;
+        width: 95%;
+        padding: 0.5rem 1rem;
+    }
+    
+    .glass-navbar .navbar-collapse {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 16px;
+        padding: 1.5rem;
+        margin-top: 15px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
+    
+    /* Force text to be visible on mobile expanded white backgrounds */
+    .transparent-state .nav-link {
+        color: var(--color-text-main) !important;
+    }
+    .transparent-state .btn-outline-light {
+        color: var(--color-primary) !important;
+        border-color: var(--color-primary) !important;
+    }
+}
